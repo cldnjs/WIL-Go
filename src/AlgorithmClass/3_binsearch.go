@@ -21,26 +21,23 @@ func main() {
 
 	index := BinSearch(numList, findNum)
 
-	fmt.Println(index, "번째")
+	fmt.Println("Index:", index)
 }
 
 func BinSearch(target []int, findValue int) int { // 이진탐색을 실행하는 함수
 	startIndex := 0
 	endIndex := len(target) - 1
 
-	for startIndex <= endIndex {
+	for (endIndex - startIndex) >= 0 {
 		median := (startIndex + endIndex) / 2
-
-		if target[median] < findValue {
+		if target[median] == findValue {
+			return median
+		} else if target[median] < findValue {
 			startIndex = median + 1
 		} else {
 			endIndex = median - 1
 		}
 	}
 
-	if startIndex == len(target) || target[startIndex] != findValue {
-		return -1
-	} else {
-		return startIndex
-	}
+	return -1
 }
