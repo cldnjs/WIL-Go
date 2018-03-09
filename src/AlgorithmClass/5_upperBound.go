@@ -25,7 +25,7 @@ func main() {
 
 func UpperBound(target []int, findValue int) int {
 	startIndex := 0
-	endIndex := len(target)
+	endIndex := len(target) - 1
 
 	for (endIndex - startIndex) > 0 {
 		median := (startIndex + endIndex) / 2

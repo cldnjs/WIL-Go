@@ -25,7 +25,7 @@ func main() {
 
 func LowerBound(target []int, findValue int) int { // 처음으로 findValue이상의 숫자가 나오는 인덱스를 반환
 	startIndex := 0
-	endIndex := len(target) + 1
+	endIndex := len(target) - 1
 
 	for (endIndex - startIndex) > 0 {
 		median := (startIndex + endIndex) / 2
