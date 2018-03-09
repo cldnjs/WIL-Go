@@ -17,6 +17,14 @@ func modifyAreaB(rect Rectangle, n int)  { // 구조체 인스턴스를 매개�
 	rect.height *= n
 }
 
+func (rect *Rectangle) area() int { // class가 없는 대신 구조체에 메소드 연결 가능, 리시버 변수는 java의 this와 비슷함
+	return rect.height * rect.width // 포인터이므로 원래의 값이 변함
+}
+
+func (rect Rectangle) area2() int { // 인스턴스이므로 원래의 값 안변함(복사함)
+	return rect.height * rect.width
+}
+
 func main() {
 	rt1 := Rectangle{10, 10}
 	rt2 := Rectangle{10, 10}
@@ -26,4 +34,7 @@ func main() {
 
 	fmt.Println(rt1)
 	fmt.Println(rt2)
+
+	fmt.Println(rt1.area())
+	fmt.Println(rt1.area2())
 }
