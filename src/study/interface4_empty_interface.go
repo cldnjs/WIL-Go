@@ -17,7 +17,7 @@ func formatString(arg interface{}) string {
 		return p.name + " " + strconv.Itoa(p.age)
 	case *Overlap:
 		p := arg.(*Overlap)
-		return p.name + " " + strconv.Itoa(p.age)
+		return p.name + " " + strconv.Itoa(p.age) + "(pointer)"
 	default:
 		return "Error"
 	}
@@ -27,9 +27,7 @@ func main() {
 	fmt.Println(formatString(Overlap{"chiwon", 12}))
 	fmt.Println(formatString(Overlap{"minji", 12}))
 
-	var andrew = new(Overlap)
-	andrew.name = "andrew"
-	andrew.age = 12
+	andrew := &Overlap{"andrew", 12} // var andrew = new(Overlap)이랑 같음
 
 	fmt.Println(formatString(andrew))
 }
