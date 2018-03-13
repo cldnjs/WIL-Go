@@ -12,11 +12,11 @@ func (_ People) greeting() {
 }
 
 type Chiwon struct {
-	People
+	People // 상속
 	hobby string
 }
 
-func (rcv Chiwon) greeting() { // 부모 구조체의 메소드 오버라이딩
+func (_ Chiwon) greeting() { // 부모 구조체의 메소드 오버라이딩
 	fmt.Println("Chiwon method")
 }
 
