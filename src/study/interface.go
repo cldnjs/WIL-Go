@@ -21,15 +21,15 @@ func (sq Square) print() {
 	fmt.Println(sq.width *  sq.height)
 }
 
+func show(p... Printer)  {
+	for index := range p {
+		p[index].print()
+	}
+}
+
 func main() {
 	var i MyInt = 5
-	var s Square
+	s := Square{10, 20}
 
-	var p Printer
-
-	p = i
-	p.print()
-
-	p = s
-	p.print()
+	show(i, s)
 }
